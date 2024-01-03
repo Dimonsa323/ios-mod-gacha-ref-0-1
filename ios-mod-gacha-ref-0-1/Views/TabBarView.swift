@@ -6,28 +6,71 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct HomeView: View {
+struct TabBarView: View {
     @State private var selection: TabBar = .home
-
+    
     enum TabBar {
         case home
         case characters
-        case Games
-        case Settings
+        case games
+        case settings
     }
     
+    //    init() {
+    //            TabBarAppearance.shared.setAppearance()
+    //        }
+    
     var body: some View {
-        VStack {
+        ZStack(alignment: .bottom) {
             TabView(selection: $selection) {
-                .tabItem {
-                    Label("Home", image: "tabBarHome")
-                }
+                HomeView()
+                    .background(Image(.mods).resizable())
+                //                    Image(.mods)
+                //                        .resizable()
+                //                        .ignoresSafeArea()
+                    .tabItem {
+                        Label("Home", image: "tabBarHome")
+                    }
+                    .tag(TabBar.home)
+                
+                CharactersView()
+                //                    Image(.mods)
+                //                        .resizable()
+                //                        .ignoresSafeArea()
+                    .tabItem {
+                        Label("Characters", image: "tabBarPerson")
+                    }
+                    .tag(TabBar.characters)
+                
+                GamesView()
+                //                    Image(.mods)
+                //                        .resizable()
+                //                        .ignoresSafeArea()
+                    .tabItem {
+                        Label("Games", image: "tabBarGames")
+                    }
+                    .tag(TabBar.games)
+                
+                SettingsView()
+                //                    Image(.mods)
+                //                        .resizable()
+                //                        .ignoresSafeArea()
+                    .tabItem {
+                        Label("Settings", image: "tabBarSetting")
+                    }
+                    .tag(TabBar.settings)
             }
         }
+        .onAppear() {
+            TabBarAppearance.shared.setAppearance()
+        }
+        .tint(.white)
     }
 }
 
+
 #Preview {
-    HomeView()
+    TabBarView()
 }

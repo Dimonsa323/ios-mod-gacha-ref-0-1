@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
+struct TabBarAppearance {
+    
+    static var shared = TabBarAppearance()
+    
+    func setAppearance() {
+        UITabBar.appearance().backgroundColor = UIColor(named: "secondary1")
+        UITabBar.appearance().unselectedItemTintColor = .tabBarUnselected
+        UITabBar.appearance().tintColor = UIColor(named: "secondary1")
+    }
+}
