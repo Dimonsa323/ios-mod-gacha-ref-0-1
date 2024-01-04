@@ -14,7 +14,8 @@ struct TabBarAppearance {
     
     func setAppearance() {
         UITabBar.appearance().backgroundColor = UIColor(named: "secondary1")
-        UITabBar.appearance().unselectedItemTintColor = .tabBarUnselected
-        UITabBar.appearance().tintColor = UIColor(named: "secondary1")
+        UITabBar.appearance().unselectedItemTintColor = .tabBarUnselected.withAlphaComponent(0.5)
+        UITabBar.appearance().layer.opacity = 0.5
+      //  UITabBar.appearance().tintColor = UIColor(named: "secondary1")
     }
 }

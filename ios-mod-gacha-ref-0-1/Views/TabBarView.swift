@@ -18,58 +18,48 @@ struct TabBarView: View {
         case settings
     }
     
-    //    init() {
-    //            TabBarAppearance.shared.setAppearance()
-    //        }
+    init() {
+     UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.init(name: "Comfortaa-Medium", size: 12)! ], for: .normal)
+        
+        TabBarAppearance.shared.setAppearance()
+    }
     
     var body: some View {
         ZStack(alignment: .bottom) {
+            
             TabView(selection: $selection) {
                 HomeView()
-                    .background(Image(.mods).resizable())
-                //                    Image(.mods)
-                //                        .resizable()
-                //                        .ignoresSafeArea()
                     .tabItem {
                         Label("Home", image: "tabBarHome")
                     }
                     .tag(TabBar.home)
                 
                 CharactersView()
-                //                    Image(.mods)
-                //                        .resizable()
-                //                        .ignoresSafeArea()
                     .tabItem {
                         Label("Characters", image: "tabBarPerson")
                     }
                     .tag(TabBar.characters)
                 
                 GamesView()
-                //                    Image(.mods)
-                //                        .resizable()
-                //                        .ignoresSafeArea()
                     .tabItem {
                         Label("Games", image: "tabBarGames")
                     }
                     .tag(TabBar.games)
                 
                 SettingsView()
-                //                    Image(.mods)
-                //                        .resizable()
-                //                        .ignoresSafeArea()
                     .tabItem {
                         Label("Settings", image: "tabBarSetting")
+                            .font(.custom("Comfortaa-Medium", size: 12))
                     }
                     .tag(TabBar.settings)
             }
         }
-        .onAppear() {
-            TabBarAppearance.shared.setAppearance()
-        }
+//        .onAppear() {
+//            TabBarAppearance.shared.setAppearance()
+//        }
         .tint(.white)
     }
 }
-
 
 #Preview {
     TabBarView()
