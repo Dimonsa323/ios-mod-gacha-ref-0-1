@@ -1,5 +1,5 @@
 //
-//  NetworkMonitor_MGN.swift
+//  NetworkMonitorMG_N.swift
 //  ios-mod-gacha-ref-0-1
 //
 //  Created by Дима Губеня on 27.12.2023.
@@ -8,55 +8,55 @@
 //import Network
 //import UIKit
 //
-//private var _MGN3we9fd: Bool { true }
+//private var MG_N3we9fd: Bool { true }
 //
-//final class NetworkMonitor_MGN {
+//final class NetworkMonitorMG_N {
 //
-//    public static var isConnection_MGN: Bool {
-//        if _isConnection_MGN {
+//    public static var isConnectionMG_N: Bool {
+//        if _isConnectionMG_N {
 //            print("Internet connection is active.")
 //        } else {
 //            print("No internet connection.")
-//            showDisconnectionAlert_MGN()
+//            showDisconnectionAlertMG_N()
 //        }
-//        return _isConnection_MGN
+//        return _isConnectionMG_N
 //    }
 //
-//    private static weak var alert_MGN: UIAlertController?
-//    private static let queue_MGN = DispatchQueue.global()
-//    private static var isAlertPresented_MGN: Bool { alert_MGN != nil }
+//    private static weak var alertMG_N: UIAlertController?
+//    private static let queueMG_N = DispatchQueue.global()
+//    private static var isAlertPresentedMG_N: Bool { alertMG_N != nil }
 //
-//    private static var _isConnection_MGN: Bool = nwMonitor_MGN.currentPath.status == .satisfied {
+//    private static var _isConnectionMG_N: Bool = nwMonitorMG_N.currentPath.status == .satisfied {
 //        didSet {
-//            if !_isConnection_MGN {
+//            if !_isConnectionMG_N {
 //                print("No internet connection.")
-//                showDisconnectionAlert_MGN()
+//                showDisconnectionAlertMG_N()
 //            } else {
 //                print("Internet connection is active.")
-//                if isAlertPresented_MGN {
-//                    alert_MGN?.dismiss(animated: true)
+//                if isAlertPresentedMG_N {
+//                    alertMG_N?.dismiss(animated: true)
 //                }
 //            }
 //        }
 //    }
 //
-//    private static let nwMonitor_MGN = {
+//    private static let nwMonitorMG_N = {
 //        let nwMonitor = NWPathMonitor()
-//        nwMonitor.start(queue: queue_MGN)
+//        nwMonitor.start(queue: queueMG_N)
 //        nwMonitor.pathUpdateHandler = { path in
 //            DispatchQueue.main.async {
-//                _isConnection_MGN = path.status == .satisfied
+//                _isConnectionMG_N = path.status == .satisfied
 //            }
 //        }
 //        return nwMonitor
 //    }()
 //
 //    deinit {
-//        NetworkMonitor_MGN.nwMonitor_MGN.cancel()
+//        NetworkMonitorMG_N.nwMonitorMG_N.cancel()
 //    }
 //
-//    private static func showDisconnectionAlert_MGN() {
-//        guard !isAlertPresented_MGN else { return }
+//    private static func showDisconnectionAlertMG_N() {
+//        guard !isAlertPresentedMG_N else { return }
 //
 //        let alert = UIAlertController(
 //            title: NSLocalizedString("ConnectivityTitle", comment: ""),
@@ -68,7 +68,7 @@
 //
 //        SceneDelegate.shared?.window?.topViewController?.present(alert, animated: true)
 //
-//        self.alert_MGN = alert
+//        self.alertMG_N = alert
 //
 //        let generator = UINotificationFeedbackGenerator()
 //        generator.notificationOccurred(.warning)

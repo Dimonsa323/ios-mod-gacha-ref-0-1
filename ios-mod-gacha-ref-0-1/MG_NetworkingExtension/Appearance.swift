@@ -7,9 +7,9 @@
 
 //import SwiftUI
 //
-//final class AppAppearance_MGN {
+//final class AppAppearanceMG_N {
 //    
-//    static func setupAppearance_MGN() {
+//    static func setupAppearanceMG_N() {
 //        let deviceType = UIDevice.current.userInterfaceIdiom
 //        let titleFontSize: CGFloat = deviceType == .phone ? 20 : 35
 //        

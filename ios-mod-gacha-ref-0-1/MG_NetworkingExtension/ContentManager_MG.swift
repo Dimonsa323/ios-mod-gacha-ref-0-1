@@ -1,5 +1,5 @@
 //
-//  ContentManager_MG.swift
+//  ContentManagerMG_.swift
 //  ios-mod-gacha-ref-0-1
 //
 //  Created by Дима Губеня on 27.12.2023.
@@ -8,14 +8,14 @@
 import Foundation
 import CoreData
 
-//final class ContentManager_MG: NSObject {
+//final class ContentManagerMG_: NSObject {
 //
-//    lazy var managedContext_MGN: NSManagedObjectContext = {
-//        persistentContainer_MGN.viewContext
+//    lazy var managedContextMG_N: NSManagedObjectContext = {
+//        persistentContainerMG_N.viewContext
 //    }()
 //
-//    private lazy var persistentContainer_MGN: NSPersistentContainer = {
-//        let container = NSPersistentContainer(name: "ContentCache_MG")
+//    private lazy var persistentContainerMG_N: NSPersistentContainer = {
+//        let container = NSPersistentContainer(name: "ContentCacheMG_")
 //        container.loadPersistentStores { description, error in
 //            if let error = error {
 //                fatalError("Unable to load persistent stores: \(error)")
@@ -24,37 +24,37 @@ import CoreData
 //        return container
 //    }()
 //
-//    func getModelPath_MG(for imgPath: String) -> String {
+//    func getModelPathMG_(for imgPath: String) -> String {
 //        String(format: "/%@", imgPath)
 //    }
 //
-//    func getPath_MG(for contentType: ContentType_MG, imgPath: String) -> String {
+//    func getPathMG_(for contentType: ContentTypeMG_, imgPath: String) -> String {
 //        switch contentType {
-//        case .mods_mgn:
+//        case .modsMG_n:
 //            var originalString = imgPath
 //            let replacementString = "TipsAndTricks"
 //            if let range = originalString.range(of: "Tips_and_Tricks") {
 //                originalString.replaceSubrange(range, with: replacementString)
 //            }
 //            return String(format: "/%@", originalString)
-//        case .wallpapers_mgn, .editor_mgn:
+//        case .wallpapersMG_n, .editorMG_n:
 //            return String(format: "/%@", imgPath)
 //        default:
 //            return String(format: "/%@/%@", contentType.associatedPath.rawValue, imgPath)
 //        }
 //    }
 //
-//    func getPath_MG(for contentType: ContentType_MG, filePath: String) -> String {
+//    func getPathMG_(for contentType: ContentTypeMG_, filePath: String) -> String {
 //        switch contentType {
-//        case .mods_mgn:
+//        case .modsMG_n:
 //            return String(format: "/%@", filePath)
 //        default: return ""
 //        }
 //    }
 //
-//    func serialized_MGN(markups data: Data) -> [EditorCodableContentList_MG] {
-//        if let jsonObj = jsonObj_MGN(from: data, with: "dgsb-we3"),
-//           let markups = try? JSONDecoder().decode([EditorCodableContentList_MG].self,
+//    func serializedMG_N(markups data: Data) -> [EditorCodableContentListMG_] {
+//        if let jsonObj = jsonObjMG_N(from: data, with: "dgsb-we3"),
+//           let markups = try? JSONDecoder().decode([EditorCodableContentListMG_].self,
 //                                                   from: jsonObj) {
 //            return markups
 //        }
@@ -62,11 +62,11 @@ import CoreData
 //        return []
 //    }
 //
-//    func fetchFavorites_MGN(contentType: ContentType_MG) -> [String] {
+//    func fetchFavoritesMG_N(contentType: ContentTypeMG_) -> [String] {
 //        let fetchRequest = FavoritesEntity.fetchRequest()
 //        fetchRequest.predicate = .init(format: "contentType == %i", contentType.int64)
 //        do {
-//            let result = try managedContext_MGN.fetch(fetchRequest)
+//            let result = try managedContextMG_N.fetch(fetchRequest)
 //            return result.compactMap { $0.id }
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
@@ -74,7 +74,7 @@ import CoreData
 //        }
 //    }
 //
-//    func storeFavorites_MGN(with id: String, contentType: ContentType_MG) {
+//    func storeFavoritesMG_N(with id: String, contentType: ContentTypeMG_) {
 //        let fetchRequest = FavoritesEntity.fetchRequest()
 //        fetchRequest.predicate = .init(format: "contentType == %i AND id == %@",
 //                                       contentType.int64,
@@ -82,22 +82,22 @@ import CoreData
 //        fetchRequest.fetchLimit = 1
 //
 //        do {
-//            if let entity = try managedContext_MGN.fetch(fetchRequest).first {
+//            if let entity = try managedContextMG_N.fetch(fetchRequest).first {
 //                entity.id = id
 //                entity.contentType = contentType.int64
 //            } else {
-//                let entity = FavoritesEntity(context: managedContext_MGN)
+//                let entity = FavoritesEntity(context: managedContextMG_N)
 //                entity.id = id
 //                entity.contentType = contentType.int64
 //            }
 //
-//            saveContext_MGN()
+//            saveContextMG_N()
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
 //        }
 //    }
 //
-//    func deleteFavorites_MGN(with id: String, contentType: ContentType_MG) {
+//    func deleteFavoritesMG_N(with id: String, contentType: ContentTypeMG_) {
 //        let fetchRequest = FavoritesEntity.fetchRequest()
 //        fetchRequest.predicate = .init(format: "contentType == %i AND id == %@",
 //                                       contentType.int64,
@@ -105,52 +105,52 @@ import CoreData
 //        fetchRequest.fetchLimit = 1
 //
 //        do {
-//            if let entity = try managedContext_MGN.fetch(fetchRequest).first {
-//                managedContext_MGN.delete(entity)
+//            if let entity = try managedContextMG_N.fetch(fetchRequest).first {
+//                managedContextMG_N.delete(entity)
 //            }
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
-//            managedContext_MGN.rollback()
+//            managedContextMG_N.rollback()
 //        }
 //    }
 //
-//    func fetchCharacters_MGN() -> [CharacterPreview_MG] {
+//    func fetchCharactersMG_N() -> [CharacterPreviewMG_] {
 //        let fetchRequest = CharacterEntity.fetchRequest()
 //        do {
-//            return try managedContext_MGN
+//            return try managedContextMG_N
 //                .fetch(fetchRequest)
-//                .compactMap { CharacterPreview_MG(from: $0) }
+//                .compactMap { CharacterPreviewMG_(from: $0) }
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
 //            return []
 //        }
 //    }
 //
-//    func removeAllCharacters_MGN() {
+//    func removeAllCharactersMG_N() {
 //        let fetchRequest = CharacterEntity.fetchRequest()
 //
 //        do {
-//            let characters = try managedContext_MGN.fetch(fetchRequest)
+//            let characters = try managedContextMG_N.fetch(fetchRequest)
 //
 //            for character in characters {
-//                managedContext_MGN.delete(character)
+//                managedContextMG_N.delete(character)
 //            }
 //
-//            saveContext_MGN()
+//            saveContextMG_N()
 //            print("All characters removed successfully.")
 //        } catch let error as NSError {
 //            print("Error removing characters: \(error.localizedDescription)")
 //        }
 //    }
 //
-//    func store_MGN(character preview: CharacterPreview_MG) {
+//    func storeMG_N(character preview: CharacterPreviewMG_) {
 //        let fetchRequest = CharacterEntity.fetchRequest()
 //        fetchRequest.predicate = .init(format: "%K == %@", "id",
 //                                       preview.id as CVarArg)
 //        fetchRequest.fetchLimit = 1
 //
 //        do {
-//            if let entity = try managedContext_MGN.fetch(fetchRequest).first {
+//            if let entity = try managedContextMG_N.fetch(fetchRequest).first {
 //                entity.content = preview.content
 //                entity.body = preview.body
 //                entity.brows = preview.brows
@@ -164,7 +164,7 @@ import CoreData
 //                entity.trousers = preview.trousers
 //                entity.wings = preview.wings
 //            } else {
-//                let entity = CharacterEntity(context: managedContext_MGN)
+//                let entity = CharacterEntity(context: managedContextMG_N)
 //                entity.id = preview.id
 //                entity.content = preview.content
 //                entity.body = preview.body
@@ -180,35 +180,35 @@ import CoreData
 //                entity.wings = preview.wings
 //            }
 //
-//            saveContext_MGN()
+//            saveContextMG_N()
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
 //        }
 //    }
 //
-//    func delete_MGN(character preview: CharacterPreview_MG) {
+//    func deleteMG_N(character preview: CharacterPreviewMG_) {
 //        let fetchRequest = CharacterEntity.fetchRequest()
 //        fetchRequest.predicate = .init(format: "%K == %@", "id",
 //                                       preview.id as CVarArg)
 //        fetchRequest.fetchLimit = 1
 //
 //        do {
-//            if let entity = try managedContext_MGN.fetch(fetchRequest).first {
-//                managedContext_MGN.delete(entity)
+//            if let entity = try managedContextMG_N.fetch(fetchRequest).first {
+//                managedContextMG_N.delete(entity)
 //            }
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
-//            managedContext_MGN.rollback()
+//            managedContextMG_N.rollback()
 //        }
 //    }
 //}
 //
 //// MARK: - Private API
 //
-//private extension ContentManager_MG {
+//private extension ContentManagerMG_ {
 //
-//    func jsonObj_MGN(from data: Data, with key: String) -> Data? {
-//        if let jsonDict = jsonDict_MGN(from: data),
+//    func jsonObjMG_N(from data: Data, with key: String) -> Data? {
+//        if let jsonDict = jsonDictMG_N(from: data),
 //           let jsonObj = jsonDict[key],
 //           let data = try? JSONSerialization.data(withJSONObject: jsonObj) {
 //            return data
@@ -217,31 +217,31 @@ import CoreData
 //        return nil
 //    }
 //
-//    func jsonDict_MGN(from data: Data) -> [String: Any]? {
+//    func jsonDictMG_N(from data: Data) -> [String: Any]? {
 //        try? JSONSerialization.jsonObject(with: data) as? [String: Any]
 //    }
 //
-//    func execute_MGN(deleteRequest: NSBatchDeleteRequest) -> Bool {
+//    func executeMG_N(deleteRequest: NSBatchDeleteRequest) -> Bool {
 //        do {
-//            try managedContext_MGN.execute(deleteRequest)
+//            try managedContextMG_N.execute(deleteRequest)
 //            return true
 //        } catch let error {
 //            print(error.localizedDescription)
-//            managedContext_MGN.rollback()
+//            managedContextMG_N.rollback()
 //            return false
 //        }
 //    }
 //
-//    func saveContext_MGN() {
-//        guard managedContext_MGN.hasChanges else {
+//    func saveContextMG_N() {
+//        guard managedContextMG_N.hasChanges else {
 //            return
 //        }
 //
 //        do {
-//            try managedContext_MGN.save()
+//            try managedContextMG_N.save()
 //        } catch let error as NSError {
 //            print(error.localizedDescription)
-//            managedContext_MGN.rollback()
+//            managedContextMG_N.rollback()
 //        }
 //    }
 //}
