@@ -1,5 +1,5 @@
 //
-//  Configurations_MG.swift
+//  ConfigurationsMG_.swift
 //  ios-mod-gacha-ref-0-1
 //
 //  Created by Дима Губеня on 27.12.2023.
@@ -8,27 +8,27 @@
 import Foundation
 import CoreText
 
-private var _MGN1245: String { "_MGN" }
-private var _MGN12435: Int { 0 }
+private var MG_N1245: String { "MG_N" }
+private var MG_N12435: Int { 0 }
 
-enum Configurations_MGN {
-    static let subFontUrl_MGN = Bundle.main.url(forResource: "sub", withExtension: "ttf")!
-    static let adjustToken_MGN = "hfg1t85ufqbk"
+enum ConfigurationsMG_N {
+    static let subFontUrlMG_N = Bundle.main.url(forResource: "sub", withExtension: "ttf")!
+    static let adjustTokenMG_N = "hfg1t85ufqbk"
     
-    static let pushwooshToken_MGN = "56F9A-A546D"
-    static let pushwooshAppName_MGN = "test"
+    static let pushwooshTokenMG_N = "56F9A-A546D"
+    static let pushwooshAppNameMG_N = "test"
     
-    static let termsLink_MGN: String = "https://www.google.com"
-    static let policyLink_MGN: String = "https://www.google.com"
+    static let termsLinkMG_N: String = "https://www.google.com"
+    static let policyLinkMG_N: String = "https://www.google.com"
     
     
-    enum Product_MGN: CaseIterable {
+    enum ProductMG_N: CaseIterable {
         case main
         case content1
         case content2
         case content3
         
-        var id_MGN: String {
+        var idMG_N: String {
             switch self {
             case .content1: return "unlockOne"
             case .content2: return "unlockTwo"
@@ -36,7 +36,7 @@ enum Configurations_MGN {
             case .content3: return "unlockThree"
             }
         }
-        var pushTag_MGN: String {
+        var pushTagMG_N: String {
             switch self {
             case .content2: return "SecondSubscription"
             case .main:     return "MainSubscription"
@@ -46,10 +46,10 @@ enum Configurations_MGN {
         }
     }
     
-    static let subscriptionSharedSecret_MGN = "253336a4821b43d0af174241a9a85f90"
+    static let subscriptionSharedSecretMG_N = "253336a4821b43d0af174241a9a85f90"
     
-    static func getSubFontName_MGN() -> String {
-        let fontPath = Configurations_MGN.subFontUrl_MGN.path as CFString
+    static func getSubFontNameMG_N() -> String {
+        let fontPath = ConfigurationsMG_N.subFontUrlMG_N.path as CFString
         let fontURL = CFURLCreateWithFileSystemPath(nil, fontPath, CFURLPathStyle.cfurlposixPathStyle, false)
         
         guard let fontDataProvider = CGDataProvider(url: fontURL!) else {
@@ -65,7 +65,7 @@ enum Configurations_MGN {
     }
 }
 
-enum ConfigurationMediaSub_MGN {
+enum ConfigurationMediaSubMG_N {
     static let nameFileVideoForPhone = "phone"
     static let nameFileVideoForPad = "pad"
     static let videoFileType = "mp4"
