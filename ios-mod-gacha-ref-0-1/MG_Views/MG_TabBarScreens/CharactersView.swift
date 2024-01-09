@@ -35,6 +35,7 @@ struct CharactersView: View {
                             //
                         } label: {
                             Image(.starFavorite)
+                                .border(.red)
                         }
 
                     }
