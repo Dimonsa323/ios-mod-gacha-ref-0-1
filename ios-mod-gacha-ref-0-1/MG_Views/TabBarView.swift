@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct TabBarView: View {
     @State private var selection: TabBar = .home
@@ -19,8 +18,6 @@ struct TabBarView: View {
     }
     
     init() {
-     UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.init(name: "Comfortaa-Medium", size: 12)! ], for: .normal)
-        
         TabBarAppearance.shared.setAppearance()
     }
     
@@ -31,25 +28,27 @@ struct TabBarView: View {
                 HomeView()
                     .tabItem {
                         Label("Home", image: "tabBarHome")
+                            
                     }
                     .tag(TabBar.home)
                 
                 CharactersView()
                     .tabItem {
                         Label("Characters", image: "tabBarPerson")
+                            
                     }
                     .tag(TabBar.characters)
                 
                 GamesView()
                     .tabItem {
                         Label("Games", image: "tabBarGames")
+                           
                     }
                     .tag(TabBar.games)
                 
                 SettingsView()
                     .tabItem {
                         Label("Settings", image: "tabBarSetting")
-                            .font(.custom("Comfortaa-Medium", size: 12))
                     }
                     .tag(TabBar.settings)
             }

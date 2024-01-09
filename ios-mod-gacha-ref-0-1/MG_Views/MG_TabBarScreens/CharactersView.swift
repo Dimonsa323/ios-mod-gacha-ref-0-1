@@ -15,11 +15,34 @@ struct CharactersView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             
-            VStack {
-                Text("Label")
-                    .padding(8)
-                    .addBackground(color: .red)
+            VStack(spacing: 0) {
+                HStack {
+                    Button {
+                        //
+                    } label: {
+                        Image(.navBarBack)
+                        
+                        Spacer()
+                        
+                        Text("Mod")
+                            
+                            .foregroundStyle(.black)
+                            .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .regular, iPhoneSize: 28, iPadSize: 56))
+                        
+                        Spacer()
+                        
+                        Button {
+                            //
+                        } label: {
+                            Image(.starFavorite)
+                        }
+
+                    }
+                   
+                }
+                
             }
+            Spacer()
         }
     }
 }

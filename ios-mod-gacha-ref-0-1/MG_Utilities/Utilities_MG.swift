@@ -28,6 +28,22 @@ final class MG_Utilities {
             }
         }
     
+    func MG_widthWithOpt(aspectRatio: CGFloat?) -> CGFloat? {
+        if let aspectRatio {
+            return UIApplication.viewBoundsMG_.width * aspectRatio
+        } else {
+            return nil
+        }
+    }
+    
+    
+    func MG_heightWithOpt(aspectRatio: CGFloat?) -> CGFloat? {
+        if let aspectRatio {
+            return UIApplication.viewBoundsMG_.height * aspectRatio
+        } else {
+            return nil
+        }
+    }
 }
 
 

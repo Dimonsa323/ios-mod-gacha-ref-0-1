@@ -19,11 +19,11 @@ struct LoadingView: View {
                 VStack(spacing: 28) {
                     Text("Loading...")
                         .foregroundStyle(.secondary1)
-                        .font(.custom("ConcertOne-Regular", size: 32))
+                        .MG_iosDeviceTypeFont(font: .init(name: .concert, style: .regular, iPhoneSize: 32, iPadSize: 64))
                     
                     ProgressView(value: progress) .progressViewStyle(BarProgressStyle(height: 28.0))
                         .tint(.secondary1)
-                        .padding(.horizontal, 20)
+                        .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
                     
                         .task {
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -59,7 +59,7 @@ struct BarProgressStyle: ProgressViewStyle {
                 configuration.label
                     .font(labelFontStyle)
                 
-                RoundedRectangle(cornerRadius: 20.0)
+                RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
                     .fill(Color(uiColor: .white))
                     .frame(height: height)
                     .frame(width: geometry.size.width)

@@ -11,15 +11,20 @@ import SwiftUI
 var idiom: UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
 var isIPad: Bool { idiom == .pad }
 
-extension View {
-    func iosDeviceTypePadding(edge: Edge.Set, iOSPadding: CGFloat, iPadPadding: CGFloat, iPadIsAspect: Bool
+extension MG_View {
+    func MG_iosDeviceTypePadding(
+        edge: Edge.Set,
+        iOSPadding: CGFloat,
+        iPadPadding: CGFloat,
+        iPadIsAspect: Bool = false
     ) -> some View {
+        
         return modifier(MG_DevicePaddingModifier(
-             edge: edge,
-             iOSPadding: iOSPadding,
-             iPadPadding: iPadPadding,
-             iPadIsAspect: iPadIsAspect
-         ))
+            edge: edge,
+            iOSPadding: iOSPadding,
+            iPadPadding: iPadPadding,
+            iPadIsAspect: iPadIsAspect
+        ))
     }
 }
 

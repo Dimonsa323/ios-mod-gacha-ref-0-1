@@ -11,7 +11,7 @@ struct HomeView: View {
     @State private var searchText = ""
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             GeometryReader { geometry in
                 ZStack {
                     Image(.mods)
@@ -19,16 +19,15 @@ struct HomeView: View {
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
                     
-                    VStack() {
+                    VStack(spacing: 0) {
                         CustomSearchBar(searchText: $searchText)
-                            .padding(.top, 20)
-                        //    .padding(.horizontal, 20)
+                            .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                         
-                        HStack {
+                        HStack(spacing: 0) {
                             Text("Mods")
-                                .font(.custom("Comfortaa-Bold", size: 20))
-                                .padding(.leading, 20)
-                                .padding(.top, 20)
+                                .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
+                                .MG_iosDeviceTypePadding(edge: .leading, iOSPadding: 20, iPadPadding: 40)
+                                .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                             
                             Spacer()
                             
@@ -37,41 +36,42 @@ struct HomeView: View {
                             } label: {
                                 Text("See All")
                                     .foregroundStyle(Color.black)
-                                    .font(.custom("Comfortaa-Medium", size: 16))
-                                    .padding(.top, 20)
-                                    .padding(.trailing, 20)
+                                    .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
+                                    .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
+                                    .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 20, iPadPadding: 40)
                             }
                         }
                         
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
+                            HStack() {
                                 ForEach(0..<5) { index in
                                     VStack(alignment: .leading) {
                                         Image(.moko)
                                             .resizable()
-                                            .cornerRadius(16)
-                                            .padding(.all, 12)
+                                            .MG_cornerRadius(isIPad ? 32 : 16, corners: .allCorners)
+                                            .MG_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                                         Text("Mod Name \(index + 1)")
-                                            .font(.custom("Comfortaa-Bold", size: 20))
-                                            .padding(.bottom, 12)
-                                            .padding(.leading, 12)
+                                            .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
+                                            .MG_iosDeviceTypePadding(edge: .bottom, iOSPadding: 12, iPadPadding: 24)
+                                            .MG_iosDeviceTypePadding(edge: .leading, iOSPadding: 12, iPadPadding: 24)
                                     }
                                     .background(.modsCellBackground)
-                                    .cornerRadius(16)
-                                    .padding(.trailing, 4)
+                                    .MG_cornerRadius(isIPad ? 32 : 16, corners: .allCorners)
+                                    .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 4, iPadPadding: 8)
                                 }
                             }
-                            .padding(.top, 12)
-                            .padding(.horizontal, 20)
+                            .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
+                            .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
                             
-                        }.frame(height: 220)
+                        }
+                        .MG_iosDeviceTypeFrame(iOSHeight: 220, iPadHeight: 440)
                         
                         VStack {
-                            HStack {
+                            HStack(spacing: 0) {
                                 Text("Outfit ideas")
-                                    .font(.custom("Comfortaa-Bold", size: 20))
-                                    .padding(.leading, 20)
-                                    .padding(.top, 20)
+                                    .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
+                                    .MG_iosDeviceTypePadding(edge: .leading, iOSPadding: 20, iPadPadding: 40)
+                                    .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                                 
                                 Spacer()
                                 
@@ -80,9 +80,9 @@ struct HomeView: View {
                                 } label: {
                                     Text("See All")
                                         .foregroundStyle(Color.black)
-                                        .font(.custom("Comfortaa-Medium", size: 16))
-                                        .padding(.top, 20)
-                                        .padding(.trailing, 20)
+                                        .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
+                                        .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
+                                        .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 20, iPadPadding: 40)
                                 }
                             }
                             
@@ -92,22 +92,23 @@ struct HomeView: View {
                                         
                                         Image(.mocoImage2)
                                             .resizable()
-                                            .cornerRadius(20)
-                                            .padding(.all, 8)
+                                            .MG_cornerRadius(20, corners: .allCorners)
+                                            .MG_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
                                             .background(.whiteLight)
-                                            .cornerRadius(20)
+                                            .MG_cornerRadius(20, corners: .allCorners)
                                     }
                                 }
-                                .padding(.top, 12)
-                                .padding(.horizontal, 20)
+                                .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
+                                .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
                                 
-                            }.frame(height: 242)
+                            }
+                            .MG_iosDeviceTypeFrame(iOSHeight: 242, iPadHeight: 484)
                             
-                            HStack {
+                            HStack(spacing: 0) {
                                 Text("Collections")
-                                    .font(.custom("Comfortaa-Bold", size: 20))
-                                    .padding(.leading, 20)
-                                    .padding(.top, 24)
+                                    .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
+                                    .MG_iosDeviceTypePadding(edge: .leading, iOSPadding: 20, iPadPadding: 40)
+                                    .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 24, iPadPadding: 48)
                                 
                                 Spacer()
                                 
@@ -116,9 +117,9 @@ struct HomeView: View {
                                 } label: {
                                     Text("See All")
                                         .foregroundStyle(Color.black)
-                                        .font(.custom("Comfortaa-Medium", size: 16))
-                                        .padding(.top, 24)
-                                        .padding(.trailing, 20)
+                                        .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
+                                        .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 24, iPadPadding: 48)
+                                        .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 20, iPadPadding: 40)
                                 }
                             }
                         }
@@ -127,7 +128,7 @@ struct HomeView: View {
                     }
                 }
             }
-        }
+        
     }
 }
 
@@ -140,7 +141,7 @@ struct CustomSearchBar: View {
                 .foregroundColor(Color.search.opacity(0.6))
             
             TextField("Search", text: $searchText)
-                .font(.custom("Comfortaa-Medium", size: 16))
+                .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                 .foregroundColor(Color.search.opacity(0.6))
             
             if !searchText.isEmpty {
@@ -149,16 +150,17 @@ struct CustomSearchBar: View {
                 }) {
                     Image(systemName: "xmark")
                         .foregroundColor(Color.black)
-                        .padding(.leading, 6)
-                        .padding(.trailing, 8)
+                        .MG_iosDeviceTypePadding(edge: .leading, iOSPadding: 6, iPadPadding: 12)
+                        .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 8, iPadPadding: 16)
                 }
             }
-        }.frame(height: 26)
-        .padding(.vertical, 7)
-        .padding(.leading, 8)
-        .background(Color.white.opacity(0.6))
-        .cornerRadius(10)
-        .padding(.horizontal, 16)
+        }.frame(height: isIPad ? 52 : 26)
+            
+            .MG_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
+            .MG_iosDeviceTypePadding(edge: .leading, iOSPadding: 8, iPadPadding: 16)
+            .background(Color.white.opacity(0.6))
+            .MG_cornerRadius(isIPad ? 20 : 10, corners: .allCorners)
+            .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
     }
 }
 
