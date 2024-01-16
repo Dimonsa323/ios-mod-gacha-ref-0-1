@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct MG_ContentView: View {
+struct ZStackWithBackground<Content: View>: View {
+    
+    let content: () -> Content
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image(.mods)
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+            
+            content()
+        }
     }
 }
 
-#Preview {
-    MG_ContentView()
-}
+
+//#Preview {
+//    ZStackWithBackground()
+//}

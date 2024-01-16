@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+extension String {
+    var withAddedSpacing: String {
+        Array(self)
+            .compactMap { String($0) }
+            .joined(separator: "\u{2006}")
+    }
+}

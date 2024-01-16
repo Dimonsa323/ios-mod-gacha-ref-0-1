@@ -5,4 +5,11 @@
 //  Created by Дима Губеня on 11.01.2024.
 //
 
-import Foundation
+import SwiftUI
+import UIKit
+
+extension UILabel {
+    
+    
+}
+

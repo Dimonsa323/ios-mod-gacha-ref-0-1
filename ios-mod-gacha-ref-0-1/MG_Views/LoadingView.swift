@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct LoadingView: View {
+    @Injected private var dropbox: Dropbox_ltlpm
+    
+    @StateObject private var viewModel: MG_LoadingVM
     @State private var progress: CGFloat = 0.0
     
     var body: some View {
-            ZStack {
-                Image(.mods)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
+            ZStackWithBackground {
                 VStack(spacing: 28) {
                     Text("Loading...")
                         .foregroundStyle(.secondary1)
@@ -38,6 +38,9 @@ struct LoadingView: View {
                             }
                         }
                 }
+            }
+            .onAppear {
+                
             }
         }
 }
@@ -75,6 +78,6 @@ struct BarProgressStyle: ProgressViewStyle {
     }
 }
 
-#Preview {
-    LoadingView()
-}
+//#Preview {
+//    LoadingView()
+//}

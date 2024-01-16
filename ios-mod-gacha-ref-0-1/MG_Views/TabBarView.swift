@@ -27,28 +27,42 @@ struct TabBarView: View {
             TabView(selection: $selection) {
                 HomeView()
                     .tabItem {
-                        Label("Home", image: "tabBarHome")
-                            
+                        Label {
+                            Text("Home")
+                                .kerning(0.6)
+                        } icon: {
+                            Image(.tabBarHome)
+                        }
                     }
                     .tag(TabBar.home)
                 
                 CharactersView()
                     .tabItem {
-                        Label("Characters", image: "tabBarPerson")
-                            
+                        Label {
+                            Text("Characters")
+                        } icon: {
+                            Image(.tabBarPerson)
+                        }
                     }
                     .tag(TabBar.characters)
                 
                 GamesView()
                     .tabItem {
-                        Label("Games", image: "tabBarGames")
-                           
+                        Label {
+                            Text("Games")
+                        } icon: {
+                            Image(.tabBarGames)
+                        }
                     }
                     .tag(TabBar.games)
                 
                 SettingsView()
                     .tabItem {
-                        Label("Settings", image: "tabBarSetting")
+                        Label {
+                            Text("Settings")
+                        } icon: {
+                            Image(.tabBarSetting)
+                        }
                     }
                     .tag(TabBar.settings)
             }

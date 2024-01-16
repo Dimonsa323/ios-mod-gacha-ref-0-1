@@ -9,10 +9,11 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Image(.mods)
-            .resizable()
-            .scaledToFill()
-            .edgesIgnoringSafeArea(.all)
+        ZStackWithBackground {
+            HStack {
+                
+            }
+        }
     }
 }
 
