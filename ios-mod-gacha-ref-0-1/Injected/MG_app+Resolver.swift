@@ -11,12 +11,12 @@ import Resolver
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         
-        register { Dropbox_ltlpm() }.scope(.application)
-//        register { TTLS_NetworkMonitoringManager() }.scope(.application)
-//        register { TTLS_CoreDataStore() }.scope(.application)
-//        register { TTLS_MainNavigationStore() }.scope(.application)
-//        register { TTLS_SaverManager() }.scope(.application)
-//        register { TTLS_HomeDataAPI() }.scope(.application)
+        register { MG_Dropbox() }.scope(.application)
+//        register { MG_NetworkMonitoringManager() }.scope(.application)
+//        register { MG_CoreDataStore() }.scope(.application)
+//        register { MG_MainNavigationStore() }.scope(.application)
+//        register { MG_SaverManager() }.scope(.application)
+//        register { MG_HomeDataAPI() }.scope(.application)
     }
 }
 

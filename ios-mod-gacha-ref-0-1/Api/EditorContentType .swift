@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+enum MG_EditorContentType: String, CaseIterable, Identifiable {
+    var id: Self { self }
+    
+    case living = "Living Templates"
+    case miscTemplate = "Misc Templates"
+    case MG_MyWorks = "My works"
+
+    static var dropDownMenu: [MG_EditorContentType] = [.miscTemplate, .living]
+}
+

@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+typealias MG_Optional = Optional
+
+protocol MG_AnyOptional {
+    var isNil: Bool { get }
+}
+
+extension MG_Optional: MG_AnyOptional {
+    var isNil: Bool { self == nil }
+}
+
+extension MG_Optional where Wrapped: Collection {
+    var isNilOrEmpty: Bool {
+        return self?.isEmpty ?? true
+    }
+}
+

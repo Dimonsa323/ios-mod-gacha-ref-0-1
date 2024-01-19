@@ -9,7 +9,7 @@ import SwiftUI
 import Resolver
 
 struct LoadingView: View {
-    @Injected private var dropbox: Dropbox_ltlpm
+    @Injected private var dropbox: MG_Dropbox
     
     @StateObject private var viewModel: MG_LoadingVM
     @State private var progress: CGFloat = 0.0
