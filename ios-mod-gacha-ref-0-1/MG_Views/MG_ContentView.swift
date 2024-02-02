@@ -8,33 +8,33 @@
 import SwiftUI
 import CoreData
 
-struct TTLS_ContentView: View {
+struct MG_ContentView: View {
 
     @State private var splashScreenIsShow: Bool = false
-    @State private var sheetType: TTLS_CustomSheetModel?
+    @State private var sheetType: MG_CustomSheetModel?
 
     var body: some View {
         VStack(spacing: 0) {
             if splashScreenIsShow {
-                TTLS_FlowView()
+                MG_FlowView()
             } else {
-                TTLS_SplashScreen(splashScreenIsShow: $splashScreenIsShow)
+                MG_SplashScreen(splashScreenIsShow: $splashScreenIsShow)
             }
         }
         .showCustomSheet(sheetType: $sheetType)
-        .TTLS_onCreateSheet { type in
+        .MG_onCreateSheet { type in
             withAnimation(.default.speed(1)) {
                 sheetType = type
             }
         }
         .task {
-            await Task.TTLS_sleep(seconds: 1)
-            TTLS_ThirdPartyServicesManager.shared.TTLS_makeATT()
+            await Task.MG_sleep(seconds: 1)
+            MG_ThirdPartyServicesManager.shared.MG_makeATT()
         }
     }
 
 }
 
 #Preview {
-    TTLS_ContentView()
+    MG_ContentView()
 }

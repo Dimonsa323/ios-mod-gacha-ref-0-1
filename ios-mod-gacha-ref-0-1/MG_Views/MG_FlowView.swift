@@ -1,5 +1,5 @@
 //
-//  TTLS_FlowView.swift
+//  MG_FlowView.swift
 //  mods-for-melon-playground-42
 //
 //  Created by Александр Ковалев on 23.12.2023.
@@ -9,9 +9,9 @@ import SwiftUI
 import Resolver
 import FlowStacks
 
-struct TTLS_FlowView: View {
+struct MG_FlowView: View {
     
-    @InjectedObject private var navigationStore: TTLS_MainNavigationStore
+    @InjectedObject private var navigationStore: MG_MainNavigationStore
 
     init() {
         UITabBar.appearance().isHidden = true
@@ -19,36 +19,36 @@ struct TTLS_FlowView: View {
 
     var body: some View {
         Router($navigationStore.routes) { $screen, _ in
-            TTLS_pushContent(with: $screen)
+            MG_pushContent(with: $screen)
                 .hideNavBar(with: true)
         }
     }
 
     var tabView: some View {
-        TTLS_ZStackWithBackground {
+        MG_ZStackWithBackground {
             TabView(selection: $navigationStore.selectedTab) {
-                ForEach(TTLS_ContentType.sideMenu) { type in
+                ForEach(MG_ContentType.sideMenu) { type in
                     switch navigationStore.selectedTab {
                     case .mods:
-                        TTLS_GeneralContentView(selectedMenu: .mods)
+                        MG_GeneralContentView(selectedMenu: .mods)
                     case .skins:
-                        TTLS_GeneralContentView(selectedMenu: .skins)
+                        MG_GeneralContentView(selectedMenu: .skins)
                     case .tanks:
-                        TTLS_GeneralContentView(selectedMenu: .tanks)
+                        MG_GeneralContentView(selectedMenu: .tanks)
                     case .buildings:
-                        TTLS_GeneralContentView(selectedMenu: .buildings)
+                        MG_GeneralContentView(selectedMenu: .buildings)
                     case .editor:
                         EmptyView()
-                        //                TTLS_EditorListView(selectedMenu: .editor)
+                        //                MG_EditorListView(selectedMenu: .editor)
                     case .myWorks:
                         EmptyView()
-                        //                TTLS_MyWorksView(selectedMenu: .myWorks)
+                        //                MG_MyWorksView(selectedMenu: .myWorks)
                     case .favorites:
                         EmptyView()
-                        //                TTLS_FavoriteView(selectedMenu: .favorites)
+                        //                MG_FavoriteView(selectedMenu: .favorites)
                     case .settings:
                         EmptyView()
-                        //                TTLS_SettingsView()
+                        //                MG_SettingsView()
                     default:
                         EmptyView()
                     }
@@ -58,29 +58,29 @@ struct TTLS_FlowView: View {
             .disableTabViewSwipe()
             .edgesIgnoringSafeArea(.bottom)
 
-            TTLS_SideMenu(
+            MG_SideMenu(
                 isShowing: $navigationStore.presentSideMenu,
-                content: AnyView(TTLS_SideMenuView(selectedSideMenuTab: $navigationStore.selectedTab, presentSideMenu: $navigationStore.presentSideMenu))
+                content: AnyView(MG_SideMenuView(selectedSideMenuTab: $navigationStore.selectedTab, presentSideMenu: $navigationStore.presentSideMenu))
             )
         }
     }
 
     @ViewBuilder
-    func TTLS_pushContent(with path: Binding<TTLS_MainRoute>) -> some View {
+    func MG_pushContent(with path: Binding<MG_MainRoute>) -> some View {
         switch path.wrappedValue {
         case .tabView:
             tabView
         case let .detail(item, contentType):
             EmptyView()
-//            TTLS_GeneralDetailView(item: item, contentType: contentType)
-        case .editor(let TTLS_MyWorks):
+//            MG_GeneralDetailView(item: item, contentType: contentType)
+        case .editor(let MG_MyWorks):
             EmptyView()
-//            TTLS_EditorView(myMod: TTLS_MyWorks)
+//            MG_EditorView(myMod: MG_MyWorks)
         }
     }
 }
 
-extension TTLS_View {
+extension MG_View {
     @ViewBuilder
     func hideNavBar(with isHidden: Bool) -> some View {
         if #available(iOS 16.0, *) {
@@ -93,5 +93,5 @@ extension TTLS_View {
 }
 
 #Preview {
-    TTLS_FlowView()
+    MG_FlowView()
 }
