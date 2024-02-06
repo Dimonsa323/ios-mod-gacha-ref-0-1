@@ -9,9 +9,9 @@ import SwiftUI
 import Resolver
 import FlowStacks
 
-struct TTLS_FlowView: View {
+struct IMGR_FlowView: View {
     
-    @InjectedObject private var navigationStore: TTLS_MainNavigationStore
+    @InjectedObject private var navigationStore: IMGR_MainNavigationStore
 
     init() {
         UITabBar.appearance().isHidden = true
@@ -19,36 +19,36 @@ struct TTLS_FlowView: View {
 
     var body: some View {
         Router($navigationStore.routes) { $screen, _ in
-            TTLS_pushContent(with: $screen)
+            IMGR_pushContent(with: $screen)
                 .hideNavBar(with: true)
         }
     }
 
     var tabView: some View {
-        TTLS_ZStackWithBackground {
+        IMGR_ZStackWithBackground {
             TabView(selection: $navigationStore.selectedTab) {
-                ForEach(TTLS_ContentType.sideMenu) { type in
+                ForEach(IMGR_ContentType.sideMenu) { type in
                     switch navigationStore.selectedTab {
                     case .mods:
-                        TTLS_GeneralContentView(selectedMenu: .mods)
+                        IMGR_GeneralContentView(selectedMenu: .mods)
                     case .skins:
-                        TTLS_GeneralContentView(selectedMenu: .skins)
+                        IMGR_GeneralContentView(selectedMenu: .skins)
                     case .tanks:
-                        TTLS_GeneralContentView(selectedMenu: .tanks)
+                        IMGR_GeneralContentView(selectedMenu: .tanks)
                     case .buildings:
-                        TTLS_GeneralContentView(selectedMenu: .buildings)
+                        IMGR_GeneralContentView(selectedMenu: .buildings)
                     case .editor:
                         EmptyView()
-                        //                TTLS_EditorListView(selectedMenu: .editor)
+                        //                IMGR_EditorListView(selectedMenu: .editor)
                     case .myWorks:
                         EmptyView()
-                        //                TTLS_MyWorksView(selectedMenu: .myWorks)
+                        //                IMGR_MyWorksView(selectedMenu: .myWorks)
                     case .favorites:
                         EmptyView()
-                        //                TTLS_FavoriteView(selectedMenu: .favorites)
+                        //                IMGR_FavoriteView(selectedMenu: .favorites)
                     case .settings:
                         EmptyView()
-                        //                TTLS_SettingsView()
+                        //                IMGR_SettingsView()
                     default:
                         EmptyView()
                     }
@@ -58,29 +58,29 @@ struct TTLS_FlowView: View {
             .disableTabViewSwipe()
             .edgesIgnoringSafeArea(.bottom)
 
-            TTLS_SideMenu(
+            IMGR_SideMenu(
                 isShowing: $navigationStore.presentSideMenu,
-                content: AnyView(TTLS_SideMenuView(selectedSideMenuTab: $navigationStore.selectedTab, presentSideMenu: $navigationStore.presentSideMenu))
+                content: AnyView(IMGR_SideMenuView(selectedSideMenuTab: $navigationStore.selectedTab, presentSideMenu: $navigationStore.presentSideMenu))
             )
         }
     }
 
     @ViewBuilder
-    func TTLS_pushContent(with path: Binding<TTLS_MainRoute>) -> some View {
+    func IMGR_pushContent(with path: Binding<IMGR_MainRoute>) -> some View {
         switch path.wrappedValue {
         case .tabView:
             tabView
         case let .detail(item, contentType):
             EmptyView()
-//            TTLS_GeneralDetailView(item: item, contentType: contentType)
-        case .editor(let TTLS_MyWorks):
+//            IMGR_GeneralDetailView(item: item, contentType: contentType)
+        case .editor(let IMGR_MyWorks):
             EmptyView()
-//            TTLS_EditorView(myMod: TTLS_MyWorks)
+//            IMGR_EditorView(myMod: IMGR_MyWorks)
         }
     }
 }
 
-extension TTLS_View {
+extension IMGR_View {
     @ViewBuilder
     func hideNavBar(with isHidden: Bool) -> some View {
         if #available(iOS 16.0, *) {
@@ -93,5 +93,5 @@ extension TTLS_View {
 }
 
 #Preview {
-    TTLS_FlowView()
+    IMGR_FlowView()
 }
