@@ -36,7 +36,7 @@ struct MG_SplashScreen: View {
             }
             .MG_iosDeviceTypePadding(edge: [.horizontal, .top], iOSPadding: 12, iPadPadding: 24)
             .MG_iosDeviceTypePadding(edge: .bottom, iOSPadding: 8, iPadPadding: 16)
-            .MG_addRoundedModifier(radius: isIPad ? 36 : 18, bgColor: .yellowTTLS)
+            .MG_addRoundedModifier(radius: isIPad ? 36 : 18, bgColor: .yellowMG)
             .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 51, iPadPadding: 51)
             .frame(maxWidth: 700)
         }

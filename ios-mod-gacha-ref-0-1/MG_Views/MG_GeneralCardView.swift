@@ -75,17 +75,17 @@ private extension MG_GeneralCardView {
         )
         .overlay {
             RoundedRectangle(cornerRadius: isIPad ? 56 : 28)
-                .strokeBorder(Color.blackTTLS, lineWidth: isIPad ? 4 : 2)
+                .strokeBorder(Color.blackMG, lineWidth: isIPad ? 4 : 2)
         }
-        .MG_addRoundedModifier(radius: isIPad ? 56 : 28, bgColor: .whiteTTLS)
+        .MG_addRoundedModifier(radius: isIPad ? 56 : 28, bgColor: .whiteMG)
     }
 
     var favouriteButton: some View {
         MG_LargeButton(
             text: favouriteButtonText,
             fontStyle: .MG_fontWithName(.nunito, style: .bold, size: isIPad ? 26 : 18),
-            backgroundColor: .blackTTLS,
-            foregroundColor: .whiteTTLS,
+            backgroundColor: .blackMG,
+            foregroundColor: .whiteMG,
             height: isIPad ? 76 : 48,
             alignment: .trailing,
             textAlignment: .leading,
@@ -99,7 +99,7 @@ private extension MG_GeneralCardView {
                     iOsButtonSize: 40,
                     ipaImagedSize: 30,
                     ipaButtonSize: 60,
-                    bgColor: .yellowTTLS,
+                    bgColor: .yellowMG,
                     lineWidth: 0
                 ) { }
                 .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 4, iPadPadding: 8)
@@ -115,7 +115,7 @@ private extension MG_GeneralCardView {
                 iOsButtonSize: 48,
                 ipaImagedSize: 32,
                 ipaButtonSize: 76,
-                bgColor: .blackTTLS)
+                bgColor: .blackMG)
             {
                 let rect = geo.frame(in: CoordinateSpace.global)
                 if !item.isLoadedToPhone {
@@ -134,7 +134,7 @@ private extension MG_GeneralCardView {
         VStack(spacing: 0) {
             Text(item.title ?? "")
                 .MG_iosDeviceTypeFont(font: .init(name: .nunito, style: .extraBold, iPhoneSize: 18, iPadSize: 32))
-                .foregroundStyle(.blackTTLS)
+                .foregroundStyle(.blackMG)
                 .MG_iosDeviceTypePadding(edge: .bottom, iOSPadding: 4, iPadPadding: 8)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
@@ -142,7 +142,7 @@ private extension MG_GeneralCardView {
             if contentType != .skins {
                 Text(item.desctiptionn ?? "")
                     .MG_iosDeviceTypeFont(font: .init(name: .nunito, style: .bold, iPhoneSize: 14, iPadSize: 24))
-                    .foregroundStyle(.blackTTLS)
+                    .foregroundStyle(.blackMG)
                     .lineLimit(1)
             }
         }
