@@ -2,7 +2,7 @@
 //  GeneralContentListView.swift
 //  mods-for-melon-playground-42
 //
-//  Created by Александр Ковалев on 24.12.2023.
+//  Created by Дима Губеня on 24.12.2023.
 //
 
 import SwiftUI

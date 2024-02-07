@@ -2,7 +2,7 @@
 //  MG_FlowView.swift
 //  mods-for-melon-playground-42
 //
-//  Created by Александр Ковалев on 23.12.2023.
+//  Created by Дима Губеня on 23.12.2023.
 //
 
 import SwiftUI

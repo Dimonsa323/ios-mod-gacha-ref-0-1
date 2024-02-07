@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  mods-for-melon-playgorund
 //
-//  Created by Александр Ковалев on 11.12.2023.
+//  Created by Дима Губеня on 11.12.2023.
 //
 
 import SwiftUI
